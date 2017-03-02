@@ -1239,6 +1239,31 @@ class Model_CRM extends Kohana_Model
 
         return $price * (1 + (Arr::get($supplierMarkupRangeValue, 'value', 0) / 100));
     }
+
+    public function getGuestId()
+    {
+        $guestId = Cookie::get('guest_id', null);
+
+        if ($guestId === null) {
+            $guestId = $this->setGuestId();
+        }
+
+        return $guestId;
+    }
+
+    public function setGuestId()
+    {
+        $res = DB::insert('guests', ['date'])
+            ->values([DB::expr('NOW()')])
+            ->execute()
+        ;
+
+        $guestId = Arr::get($res, 0);
+
+        Cookie::set('guest_id', $guestId);
+
+        return $guestId;
+    }
 }
 ?>
 

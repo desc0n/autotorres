@@ -79,7 +79,7 @@
                         <td><?=$item['offer_price'];?></td>
                         <td><?=$item['quantity'];?></td>
                         <td class="text-center">
-                            <button class="btn btn-default" onclick="addToCart(<?=$item['id'];?>)" title="Добавить в корзину">
+                            <button class="btn btn-default" onclick="addToCart(<?=$item['id'];?>, 1)" title="Добавить в корзину">
                                 <span class="fa fa-shopping-cart"></span>
                             </button>
                         </td>

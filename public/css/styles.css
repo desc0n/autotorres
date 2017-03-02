@@ -539,5 +539,9 @@ body{z-index:2; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:
 .side-panel .widget-3{z-index:1; left:0; top:0; position:relative; margin-top:60px; margin-left:auto; margin-bottom:0; margin-right:auto; text-align:center; min-height:0px; text-transform:none}
 .side-panel .site-name .sn-text{color:#ffffff; text-align:center; font-size:45px; font-family:Roboto Condensed, sans-serif; font-style:normal; text-transform:uppercase}
 @media (max-width: 480px){.blocklist-13 .body,.blocklist-13 .table,.blocklist-13 .body .btn {font-size: 11px!important;}}
-.menu-logo{float: left;margin-left: 20px;margin-top: 5px;}
+.menu-logo{position: absolute;left: 20px;top: 5px;}
 .menu-logo img{height: 50px;}
+.cart-display{width:150px;position: absolute;right: 20px;top: 15px;}
+.cart-display, .cart-display:hover,.cart-display:visited{color: #fff;text-decoration: none;}
+.cart-display .fa-shopping-cart{display: inline-block;float: left;}
+.cart-display-text{margin-top: 5px;}

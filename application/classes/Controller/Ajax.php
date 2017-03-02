@@ -8,12 +8,16 @@ class Controller_Ajax extends Controller
     /** @var Model_Content */
     private $contentModel;
 
+    /** @var $cartModel Model_Cart */
+    private $cartModel;
+
     public function __construct(Request $request, Response $response)
     {
         parent::__construct($request, $response);
 
         $this->crmModel = Model::factory('CRM');
         $this->contentModel = Model::factory('Content');
+        $this->cartModel = Model::factory('Cart');
     }
 
     public function action_search_order_spare_offer()
@@ -44,5 +48,40 @@ class Controller_Ajax extends Controller
     public function action_send_review()
     {
         return $this->response->body($this->contentModel->addReview($this->request->post('author'), $this->request->post('content')));
+    }
+
+    public function action_add_to_cart()
+    {
+        $cartId = $this->cartModel->addToCart($this->request->post('noticeId'));
+        $this->cartModel->setCartNum($cartId, (int)$this->request->post('quantity'));
+
+        $this->response->body('ok');
+    }
+
+    public function action_set_cart_num()
+    {
+        $cartId = (int)$this->request->post('cartId');
+        $value = (int)$this->request->post('value');
+
+        $value = preg_replace('/[\D]+/', '', $value);
+
+        $this->cartModel->setCartNum($cartId, $value < 0 ? 0 : $value);
+
+        $this->response->body($value);
+    }
+
+    public function action_remove_from_cart()
+    {
+        $this->response->body($this->cartModel->removeCartPosition((int)$this->request->post('cartId')));
+    }
+
+    public function action_get_cart_num()
+    {
+        $this->response->body($this->cartModel->getCartNum());
+    }
+
+    public function action_get_cart_all_price()
+    {
+        $this->response->body($this->cartModel->getCartAllPrice());
     }
 }

@@ -21,4 +21,10 @@ $contentModel = Model::factory('Content');
         <li class="menu-item"><a href="/reviews" ><span class="menu-item-text">Отзывы о нас</span></a></li>
         <li class="menu-item"><a href="/contacts" ><span class="menu-item-text">Наш адрес</span></a></li>
     </ul>
+    <a class="cart-display" href="/cart">
+        <span class="fa fa-shopping-cart fa-2x"></span>
+        <div class="cart-display-text">
+            Товаров <span id="cart-num">0</span> шт.
+        </div>
+    </a>
 </div>

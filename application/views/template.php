@@ -195,6 +195,6 @@
         </div>
     </div>
 </div>
-<script src="/public/js/scripts.js"></script>
+<script src="/public/js/scripts.js?v=2"></script>
 </body>
 </html>
