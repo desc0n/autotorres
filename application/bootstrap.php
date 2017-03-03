@@ -136,6 +136,12 @@ Route::set('contacts', 'contacts')
         'controller' => 'index',
         'action'     => 'contacts',
     ]);
+
+Route::set('cart', 'cart')
+    ->defaults([
+        'controller' => 'index',
+        'action'     => 'cart',
+    ]);
 Route::set('login', 'crm/login',[
     'controller' => 'crm',
     'action'     => 'login',

@@ -14,11 +14,12 @@
     <!--  -->
     <link rel="stylesheet" href="/public/css/bootstrap.css">
     <link rel="stylesheet" href="/public/css/font-awesome.css">
-    <link rel="stylesheet" href="/public/css/title.styles.css">
-    <link rel="stylesheet" href="/public/css/styles.css?v=2">
+    <link rel="stylesheet" href="/public/css/title.styles.css?v=2">
+    <link rel="stylesheet" href="/public/css/styles.css?v=3">
     <link rel="stylesheet" href="/public/css/designblock.scss.css">
     <link rel="stylesheet" href="/public/css/s3_styles.scss.css">
     <script src="/public/js/jquery.1.11.2.min.js"></script>
+    <script type='text/javascript' src='/public/js/bootstrap.js'></script>
     <!--[if lte IE 7 ]>
     <link rel='stylesheet' type='text/css' href='/public/css/style1_ie.css'/>
     <![endif]-->

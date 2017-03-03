@@ -193,4 +193,14 @@ class Model_Cart extends Kohana_Model
     {
         return (int)$this->getGuestCartAllPrice();
     }
+
+    public function sendOrder($name, $phone, $address, $email)
+    {
+        /** @var $crmModel Model_CRM */
+        $crmModel = Model::factory('CRM');
+
+        $crmModel->addOrderFromCart($name, $phone, $address, $email);
+
+        return $this->removeAllCartPositions();
+    }
 }

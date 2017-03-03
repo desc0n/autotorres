@@ -1264,6 +1264,46 @@ class Model_CRM extends Kohana_Model
 
         return $guestId;
     }
+
+    public function addOrderFromCart($name, $phone, $address, $email)
+    {
+        /** @var $cartModel Model_Cart */
+        $cartModel = Model::factory('Cart');
+
+        $cartData = $cartModel->getCart();
+
+        $view = View::factory('add_order_mail')
+            ->set('cartData', $cartData)
+            ->set('orderId', null)
+            ->set('name', $name)
+            ->set('phone', $phone)
+            ->set('address', $address)
+            ->set('email', $email)
+        ;
+
+        $this->sendMail('webdesconbk@gmail.com', 'Заказ с сайта', $view);
+
+        return 'success';
+    }
+
+
+    public function sendMail($email, $subject, $view = null)
+    {
+        $to = $email;
+        $message = $view !== null ? $view : '';
+        $bound = "0";
+        $header = "";
+        $header .= "Subject: $subject\n";
+        $header .= "Mime-Version: 1.0\n";
+        $header .= "Content-Type: multipart/mixed; boundary=\"$bound\"";
+        $body = "\n\n--$bound\n";
+        $body .= "Content-type: text/html; charset=\"utf-8\"\n";
+        $body .= "Content-Transfer-Encoding: quoted-printable\n\n";
+        $body .= "$message";
+
+        if (mail($to, $subject, $body, $header)) {
+        }
+    }
 }
 ?>
 

@@ -50,8 +50,8 @@ table.table2 th {
 }
 .for-mobile-view { overflow: auto; }
 .side-panel { display: none;}
-body{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; background:#ffffff; z-index:2}
-.wrapper{position:relative; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; z-index:3; display:block}
+body{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; background:#ffffff; /*z-index:2*/}
+.wrapper{position:relative; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; /*z-index:3;*/ display:block}
 .widget-30{position:relative; font-family:Roboto, sans-serif; font-size:16px; top:0; left:0; z-index:6; display:block; width:664px; margin-top:0px; margin-left:73px; margin-bottom:0px; margin-right:0}
 .content-preview{width:200px; height:100px; background:#ccc}
 .content-36 .pics-1{display:-webkit-box; display:-moz-box; display: -ms-flexbox; display: -webkit-flex; display:flex; -webkit-box-pack:center; -moz-box-pack:center; -ms-flex-pack:center; -webkit-justify-content:center; justify-content:center; -webkit-box-align:flex-start; -moz-box-align:flex-start; -ms-flex-align:flex-start; -webkit-align-items:flex-start; align-items:flex-start; -ms-flex-wrap:wrap; -moz-flex-wrap:wrap; -webkit-flex-wrap:wrap; flex-wrap:wrap}
@@ -545,3 +545,4 @@ body{z-index:2; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:
 .cart-display, .cart-display:hover,.cart-display:visited{color: #fff;text-decoration: none;}
 .cart-display .fa-shopping-cart{display: inline-block;float: left;}
 .cart-display-text{margin-top: 5px;}
+.quest-client-order-form {margin: 5px 0;}

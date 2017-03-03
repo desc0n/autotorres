@@ -50,8 +50,8 @@ table.table2 th {
 }
 .for-mobile-view { overflow: auto; }
 .side-panel { display: none;}
-body{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; background:#ffffff; z-index:2}
-.wrapper{position:relative; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; z-index:3; display:block}
+body{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; background:#ffffff; /*z-index:2*/}
+.wrapper{position:relative; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; font-style:normal; line-height:1.2; letter-spacing:0px; text-align:left; text-indent:0px; text-transform:none; text-decoration:none; /*z-index:3;*/ display:block}
 .block-5{position:relative; top:0; left:0; width:auto; min-height:0px; background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/public/img/54254257.jpg") left 50% top 50% / cover no-repeat fixed; z-index:7; margin-top:65px; margin-left:0px; margin-bottom:0px; margin-right:0; right:0px; padding-top:0.02px; padding-bottom:0.02px; display:block}
 .block-7{position:relative; top:0; left:0; width:auto; min-height:124px; z-index:4; margin-top:0px; margin-left:0px; margin-bottom:0px; margin-right:0; right:0px; padding-top:45px; padding-bottom:45px; display:-webkit-box; display:-moz-box; display: -ms-flexbox; display: -webkit-flex; display:flex}
 .widget-25{position:relative; top:0; left:0; z-index:4; width:96px; margin-top:0px; margin-left:285px; margin-right:0; margin-bottom:auto}

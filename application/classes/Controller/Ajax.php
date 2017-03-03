@@ -52,7 +52,7 @@ class Controller_Ajax extends Controller
 
     public function action_add_to_cart()
     {
-        $cartId = $this->cartModel->addToCart($this->request->post('noticeId'));
+        $cartId = $this->cartModel->addToCart($this->request->post('itemId'));
         $this->cartModel->setCartNum($cartId, (int)$this->request->post('quantity'));
 
         $this->response->body('ok');
@@ -83,5 +83,20 @@ class Controller_Ajax extends Controller
     public function action_get_cart_all_price()
     {
         $this->response->body($this->cartModel->getCartAllPrice());
+    }
+
+
+
+    public function action_send_order()
+    {
+        /** @var $cartModel Model_Cart */
+        $cartModel = Model::factory('Cart');
+
+        $name = (string)$this->request->post('name');
+        $phone = (string)$this->request->post('phone');
+        $address = (string)$this->request->post('address');
+        $email = (string)$this->request->post('email');
+
+        $this->response->body($cartModel->sendOrder($name, $phone, $address, $email));
     }
 }
