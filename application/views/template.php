@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/public/css/bootstrap.css">
     <link rel="stylesheet" href="/public/css/font-awesome.css">
     <link rel="stylesheet" href="/public/css/title.styles.css?v=2">
-    <link rel="stylesheet" href="/public/css/styles.css?v=3">
+    <link rel="stylesheet" href="/public/css/styles.css?v=4">
     <link rel="stylesheet" href="/public/css/designblock.scss.css">
     <link rel="stylesheet" href="/public/css/s3_styles.scss.css">
     <script src="/public/js/jquery.1.11.2.min.js"></script>
