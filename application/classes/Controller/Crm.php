@@ -29,7 +29,7 @@ class Controller_Crm extends Controller
     {
         if (!Auth::instance()->logged_in() && isset($_POST['login'])) {
             Auth::instance()->login($this->request->post('username'), $this->request->post('password'),true);
-            HTTP::redirect('/crm/new_order');
+            HTTP::redirect('/crm/contacts');
         }
 
         $template = View::factory('crm/login')
