@@ -5,6 +5,16 @@
  */
 class Model_Content extends Kohana_Model
 {
+    private $contactTypes = ['address' => 'Адрес', 'phone' => 'Телефон'];
+
+    /**
+     * @return array
+     */
+    public function getContactTypes()
+    {
+        return $this->contactTypes;
+    }
+
     /**
      * @param null|bool $redact_access
      * @param null|bool $show
@@ -18,7 +28,7 @@ class Model_Content extends Kohana_Model
         ;
 
         $query = $redact_access !== null ? $query->and_where('redact_access', '=', $redact_access) : $query;
-        $query = $show !== null ? $query->and_where('show', '=', $show) : $show;
+        $query = $show !== null ? $query->and_where('show', '=', $show) : $query;
 
         return $query->execute()->as_array();
     }
@@ -35,6 +45,19 @@ class Model_Content extends Kohana_Model
             ->limit(1)
             ->execute()
             ->current()
+        ;
+    }
+
+    /**
+     * @param string $slug
+     * @param string $content
+     */
+    public function updatedPage($slug, $content)
+    {
+        DB::update('content__pages')
+            ->set(['content' => $content])
+            ->where('slug', '=', $slug)
+            ->execute()
         ;
     }
 
@@ -96,5 +119,59 @@ class Model_Content extends Kohana_Model
     public function removeReview($id)
     {
         DB::delete('content__reviews')->where('id', '=', $id)->execute();
+    }
+
+    /**
+     * @param null|array $type
+     * @return array
+     */
+    public function getContacts($type = null)
+    {
+        $query = DB::select()
+            ->from('content__contacts')
+            ->where('', '', 1)
+        ;
+
+        $query = $type !== null ? $query->and_where('type', 'IN', $type) : $query;
+
+        return $query->execute()->as_array();
+    }
+
+    /**
+     * @param string $type
+     * @param string $value
+     *
+     * @return bool
+     */
+    public function addContact($type, $value)
+    {
+        if (!array_key_exists($type, $this->getContactTypes())) {
+            return false;
+        }
+
+        DB::insert('content__contacts', ['type', 'value'])
+            ->values([$type, $value])
+            ->execute()
+        ;
+
+        return true;
+    }
+
+    /**
+     * @param array $params
+     */
+    public function updateContacts($params)
+    {
+        $ids = Arr::get($params, 'ids', []);
+        $types = Arr::get($params, 'types', []);
+        $values = Arr::get($params, 'values', []);
+
+        foreach ($ids as $key => $id) {
+            DB::update('content__contacts')
+                ->set(['type' => $types[$key], 'value' => $values[$key]])
+                ->where('id', '=', $id)
+                ->execute()
+            ;
+        }
     }
 }

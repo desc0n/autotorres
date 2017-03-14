@@ -11,7 +11,12 @@
             </div>
         </div>
         <div class="layout layout_2_id_35" >
-            <?=$content;?>
+            <h1 class="h1 widget-29 widget-type-h1 editorElement layer-type-widget">
+                <?=$title;?>
+            </h1>
+            <article class="content-36 content widget-30 widget-type-content editorElement layer-type-widget">
+                <?=$content;?>
+            </article>
         </div>
     </div>
 </div>

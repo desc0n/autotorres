@@ -5,6 +5,9 @@ class Controller_Crm extends Controller
     /** @var Model_CRM */
     private $crmModel;
 
+    /** @var  Model_Content */
+    private $contentModel;
+
     public function __construct(Request $request, Response $response)
     {
         parent::__construct($request, $response);
@@ -14,6 +17,7 @@ class Controller_Crm extends Controller
         }
 
         $this->crmModel = Model::factory('CRM');
+        $this->contentModel = Model::factory('Content');
     }
 
     public function action_index()
@@ -233,6 +237,39 @@ class Controller_Crm extends Controller
             ->set('supplierMarkupRanges', $this->crmModel->findSupplierMarkupRangesBySupplier($this->request->param('id')))
         ;
 
+        $this->response->body(View::factory('crm/template')->set('content', $content));
+    }
+
+    public function action_content()
+    {
+        if (!empty($this->request->post('redactpage'))) {
+            $this->contentModel->updatedPage($this->request->query('slug'), $this->request->post('content'));
+            HTTP::redirect($this->request->referrer());
+        }
+
+        $content = View::factory('crm/redact_page')
+            ->set('pages', $this->contentModel->getPages())
+            ->set('pageData', $this->contentModel->findPageBySlug($this->request->query('slug')))
+            ->set('get', $this->request->query())
+        ;
+        $this->response->body(View::factory('crm/template')->set('content', $content));
+    }
+
+    public function action_contacts()
+    {
+        if (!empty($this->request->post('addContact'))) {
+            $this->contentModel->addContact($this->request->post('type'), $this->request->post('value'));
+            HTTP::redirect($this->request->referrer());
+        }
+
+        if (!empty($this->request->post('updateContacts'))) {
+            $this->contentModel->updateContacts($this->request->post());
+            HTTP::redirect($this->request->referrer());
+        }
+
+        $content = View::factory('crm/contacts')
+            ->set('contacts', $this->contentModel->getContacts())
+        ;
         $this->response->body(View::factory('crm/template')->set('content', $content));
     }
 }

@@ -43,19 +43,21 @@
         <ul class="nav" id="side-menu">
           <li>
             <div class="input-group search-order-field">
-              <input type="text" class="form-control" id="searchOrder" placeholder="№ заказа">
-              <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" onclick="searchOrderByNumber();"  title='Пооиск по номеру заказа'>
-                      <span class="fa fa-search fa-fw"></span>
-                  </button>
-              </span>
+<!--              <input type="text" class="form-control" id="searchOrder" placeholder="№ заказа">-->
+<!--              <span class="input-group-btn">-->
+<!--                  <button class="btn btn-default" type="button" onclick="searchOrderByNumber();"  title='Пооиск по номеру заказа'>-->
+<!--                      <span class="fa fa-search fa-fw"></span>-->
+<!--                  </button>-->
+<!--              </span>-->
             </div>
           </li>
-          <li><a href="/crm/new_order"><i class="fa fa-plus-circle fa-fw"></i> Создать заказ</a></li>
-          <li><a href="/crm/orders_list"><i class="fa fa-list fa-fw"></i> Список заказов</a></li>
+<!--          <li><a href="/crm/new_order"><i class="fa fa-plus-circle fa-fw"></i> Создать заказ</a></li>-->
+<!--          <li><a href="/crm/orders_list"><i class="fa fa-list fa-fw"></i> Список заказов</a></li>-->
           <li><a href="/crm/suppliers_list"><i class="fa fa-truck fa-fw"></i> Список поставщиков</a></li>
-          <li><a href="/crm/search_orders"><i class="fa fa-search fa-fw"></i> Поиск заказов</a></li>
-          <li><a href="/crm/search_items"><i class="fa fa-wrench fa-fw"></i> Поиск запчастей</a></li>
+          <li><a href="/crm/content"><i class="fa fa-newspaper-o fa-fw"></i> Страницы сайта</a></li>
+          <li><a href="/crm/contacts"><i class="fa fa-phone fa-fw"></i> Контакты</a></li>
+<!--          <li><a href="/crm/search_orders"><i class="fa fa-search fa-fw"></i> Поиск заказов</a></li>-->
+<!--          <li><a href="/crm/search_items"><i class="fa fa-wrench fa-fw"></i> Поиск запчастей</a></li>-->
         </ul>
       </div>
       <!-- /.sidebar-collapse -->

@@ -11,7 +11,7 @@ $contentModel = Model::factory('Content');
             <a href="/" ><span class="menu-item-text">Главная</span></a>
         </li>
         <li class="menu-item">
-            <a href="/catalog" ><span class="menu-item-text">Каталог товаров</span></a>
+            <a href="#" ><span class="menu-item-text">Каталог товаров</span></a>
             <ul class="level-2">
                 <?foreach ($contentModel->getPages(null, true) as $page) {?>
                     <li><a href="/page/<?=$page['slug'];?>" ><?=$page['name'];?></a></li>

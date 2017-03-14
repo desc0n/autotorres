@@ -54,6 +54,10 @@
     <script src="/public/js/misc.ie.js"></script> <![endif]-->
     <!--[if lt IE 9]> <script src="/public/js/html5.js"></script> <![endif]-->
 </head>
+<?php
+/** @var Model_Content $contentModel */
+$contentModel = Model::factory('Content');
+?>
 <body>
 <div class="wrapper editorElement layer-type-wrapper" >
     <div class="editorElement layer-type-block ui-droppable block-2"  data-responsive-tablet_landscape-changed="padding-bottom;" data-responsive-tablet_portrait-changed="padding-bottom;" data-responsive-mobile_landscape-changed="padding-bottom;" data-responsive-mobile_portrait-changed="padding-bottom;">
@@ -84,9 +88,9 @@
                     <div class="block-body-drop">
                         <div class="cell-text">
                             <div class="title">Телефон:</div>
-                            <div class="text_body">
-                                +7 914 0000000<br> +7 953 0000000
-                            </div>
+                            <?foreach ($contentModel->getContacts(['phone']) as $contact) {?>
+                            <div class="text_body"><?=$contact['value'];?></div>
+                            <?}?>
                         </div>
                     </div>
                 </div>
@@ -100,9 +104,9 @@
                     <div class="block-body-drop">
                         <div class="cell-text">
                             <div class="title">Адрес:</div>
-                            <div class="text_body">
-                                г. Владивосток
-                            </div>
+                            <?foreach ($contentModel->getContacts(['address']) as $contact) {?>
+                                <div class="text_body"><?=$contact['value'];?></div>
+                            <?}?>
                         </div>
                     </div>
                 </div>
@@ -123,9 +127,9 @@
                             <div class="block-body-drop">
                                 <div class="cell-text">
                                     <div class="title">Телефон:</div>
-                                    <div class="text_body">
-                                        +7 914 0000000<br> +7 953 0000000
-                                    </div>
+                                    <?foreach ($contentModel->getContacts(['phone']) as $contact) {?>
+                                        <div class="text_body"><?=$contact['value'];?></div>
+                                    <?}?>
                                 </div>
                             </div>
                         </div>
@@ -141,9 +145,9 @@
                             <div class="block-body-drop">
                                 <div class="cell-text">
                                     <div class="title">Адрес:</div>
-                                    <div class="text_body">
-                                        г. Владивосток
-                                    </div>
+                                    <?foreach ($contentModel->getContacts(['address']) as $contact) {?>
+                                        <div class="text_body"><?=$contact['value'];?></div>
+                                    <?}?>
                                 </div>
                             </div>
                         </div>

@@ -51,8 +51,11 @@ class Controller_Index extends Kohana_Controller
         $contentModel = Model::factory('Content');
 
         $template = $this->getBaseTemplate();
+        $pageData = $contentModel->findPageBySlug($this->request->param('slug'));
+
         $content = View::factory('page')
-            ->set('content', Arr::get($contentModel->findPageBySlug($this->request->param('slug')), 'content'))
+            ->set('title', Arr::get($pageData, 'name'))
+            ->set('content', Arr::get($pageData, 'content'))
         ;
 
         $template
